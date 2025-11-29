@@ -810,9 +810,9 @@ font-weight:700;
 /* testimonials section */
 
 .testimonial-section {
-    background:black; /* Dark blue background */
+    background:#FFFDD0; /* Dark blue background */
     padding: 60px 0;
-    color: #fff;
+    color:black;
 }
 
 .testimonial-left {
@@ -828,7 +828,7 @@ font-weight:700;
     font-size: 20px;
     opacity: 0.8;
     margin-top: 15px;
-    color:white;
+    color:black;
 }
 
 .testimonial-right {
@@ -836,7 +836,7 @@ font-weight:700;
 }
 
 .testimonial-box {
-    background: #fff;
+    background:#0C3C78;
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -851,7 +851,7 @@ font-weight:700;
 
 .testimonial-box p {
     font-size: 16px;
-    color:black;
+    color:white;
     line-height: 1.5;
 }
 
@@ -1102,7 +1102,7 @@ font-weight:700;
 
 }
 .footer-section {
-    background: #002C6D; /* Dark blue background */
+    background: #5C1917; /* Dark blue background */
     color: #fff;
     padding: 40px 0;
     text-align:start;
