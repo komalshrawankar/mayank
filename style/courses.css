@@ -20,6 +20,24 @@
     position: relative;
      overflow: hidden;
 }
+.contact-info {
+    text-align: left;
+       display: flex;
+    flex-direction: column;
+    margin-bottom:40px;
+}
+.acj-list1 li p {
+    margin-bottom: 4px;   /* Reduce space (default is ~16px) */
+}
+
+.acj-list1 li div {
+    margin-top: 0px;      /* Remove extra space */
+    line-height: 1.5;     /* Clean readable spacing */
+}
+
+.acj-list1 li {
+    margin-bottom: 20px;  /* spacing between steps */
+}
 
 /* Dark Overlay */
 .music-courses-banner::before {
@@ -145,17 +163,28 @@
     margin-top: 25px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    color:black;
+    gap: 25px 40px;
+    color: black;
 }
 
 .feature-item {
-    font-size: 15px;
     display: flex;
     flex-direction:row !important;
     align-items: center;
-    gap:10px;
+    gap: 10px;
+    flex-wrap: nowrap;
 }
+.feature-item span {
+    white-space: nowrap;
+}
+
+
+.feature-item img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
 
 /* RIGHT CARD */
 .advanced-right {
@@ -213,7 +242,12 @@
     color: #000;
     padding: 15px;
     border-radius: 10px;
-    text-align: center;
+    text-align:start !important;
+    
+    display: flex;
+    justify-content:space-between !important;
+    align-items:start;
+
 }
 
 .enroll-btn {
@@ -870,78 +904,75 @@ textarea {
 .contact-footer {
   background-color: #5C1917;
   color: white;
-  padding: 20px;
+  padding: 18px 0;
+  font-family: Arial, sans-serif;
 }
 
 .footer-content {
   max-width: 1200px;
   margin: auto;
   display: flex;
- 
   justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.footer-left {
-  flex: 1 1 60%;
-}
-
-.footer-left p {
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.footer-right {
-  flex: 1 1 35%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 .contact-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
+  max-width: 33%;
+  border-right:2px solid white;
+ 
 }
 
 .contact-item i {
-  font-size: 18px;
+  font-size: 16px;
+  margin-top: 2px;
 }
 
 .contact-item p {
-  font-size: 14px;
   margin: 0;
+  font-size: 18px;
+  line-height: 1.4;
+   margin-right:14px;
+}
+.lineee{
+  height:40px;
+  width:4px !important;
+  color:white;
+}
+.call-item {
+  display: flex;
+}
+.email-item {
+  border-right: none;
 }
 
-/* ------------ RESPONSIVE BREAKPOINTS ------------ */
+.call-item div p {
+  margin-bottom: 2px;
+}
 
-/* Tablet */
+/* ------------ RESPONSIVE ------------ */
+
 @media (max-width: 992px) {
   .footer-content {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
+    gap: 25px;
   }
-
-  .footer-left {
-    margin-bottom: 20px;
-  }
-
-  .footer-right {
-    width: 100%;
+  
+  .contact-item {
+    max-width: 100%;
   }
 }
 
-/* Mobile */
 @media (max-width: 600px) {
-  .footer-content {
-    padding: 15px;
+  .contact-footer {
+    padding: 15px 10px;
   }
 
-  .footer-left p {
+  .contact-item p {
     font-size: 13px;
-  }
-
-  .footer-right .contact-item p {
-    font-size: 12px;
   }
 }
