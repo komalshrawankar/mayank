@@ -1319,7 +1319,7 @@ font-weight:700;
     }
 
     .footer-links, .contact-info {
-        text-align: center;
+        text-align:start;
         margin-top: 20px;
     }
 

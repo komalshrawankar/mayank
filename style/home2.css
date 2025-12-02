@@ -1474,7 +1474,7 @@ body {
 }
 
 .contact-info {
-    text-align: left;
+    text-align:start;
     /* display: flex;
     flex-direction: column; */
     margin-bottom: 40px;
@@ -1482,6 +1482,12 @@ body {
 
 .email-item {
     white-space: nowrap;
+}
+.quick-links{
+    text-align:center;
+}
+.quick-links ul li{
+text-align:start;
 }
 
 .contact-info h5 {
@@ -1515,24 +1521,13 @@ body {
         font-size: 28px;
     }
 
-    .footer-links,
-    .contact-info {
-        text-align: center;
+    .footer-links, .contact-info {
+        text-align:start;
         margin-top: 20px;
     }
 
-    .footer-links ul li,
-    .contact-info ul li {
+    .footer-links ul li, .contact-info ul li {
         font-size: 16px;
     }
 }
-@media (max-width: 768px) {
-    .footer-section ul {
-        padding-left: 0 !important;
-    }
 
-    .footer-section ul li {
-        justify-content: center;
-        text-align: center;
-    }
-}
