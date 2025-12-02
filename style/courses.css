@@ -1,3 +1,7 @@
+html,
+body {
+    overflow-x: hidden !important;
+}
 .music-courses-banner {
     width: 100%;
     height: 350px; 
@@ -78,9 +82,13 @@
         height: 250px;
         padding: 0 15px;
     }
+    .about-bg{
+      margin-top:40px;
+    }
 
     .music-courses-banner-content h1 {
         font-size: 28px;
+        margin-top:40px;
     }
 
     .music-courses-banner-content p {
@@ -270,12 +278,32 @@
 
     .adv-features {
         grid-template-columns: 1fr;
+        justify-content:center;
+        align-items:center;
+        margin-left:60px;
+        text-align:start;
     }
 
     .advanced-left {
-        text-align: center;
+        text-align:center;
+       
+    }
+    .adv-title{
+      font-size:28px;
+      font-weight:700;
+    }
+    .adv-buttons{
+      align-items:center;
+      justify-content:center;
     }
 }
+/* Remove all <br> tags on mobile */
+@media (max-width: 768px) {
+    br {
+        display: none;
+    }
+}
+
 .jm-section {
     padding: 70px 5%;
     background: #FFF8D8;
@@ -499,22 +527,55 @@
 
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .acj-container {
-        flex-direction: column;
+        flex-direction: column !important;
         text-align: center;
+        gap: 25px;
     }
 
+    .acj-left, 
     .acj-right {
-        text-align: left;
-        max-width: 600px;
-        margin-top: 20px;
+        width: 100% !important;
+    }
+    
+   .acj-list {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        width: 100% !important;
     }
 
-    .acj-heading {
+    .acj-list div {
+        width: 100% !important;
+    }
+
+    .acj-list li {
+        font-size: 15px !important;
+        padding-left: 28px; /* keep the checkmark */
+    }
+     .acj-heading {
+        font-size: 26px;
         text-align: center;
+    }
+
+        .acj-right {
+        width: 100%;
+        text-align: left;
+    }
+    .acj-guru-img {
+        max-width: 280px !important;
+        margin: 0 auto;
+        transform: none; /* remove angle only on mobile—keeps desktop unchanged */
     }
 }
+@media (max-width: 1024px) {
+    .li2, .li3 {
+        margin-left: 0 !important;
+    }
+}
+
+
 .about-mayank {
    background: #f7f5c8;
   padding: 60px 20px;
@@ -723,7 +784,7 @@
   }
 
   .right-back {
-    right: -18%;
+    right: -20%;
   }
 
   .video-text h2 {
@@ -859,7 +920,7 @@ textarea {
 
 .audio-bars {
   width: 100px;
-  height: 30px;
+  height: 50px;
   background: url("audio-bars.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -871,6 +932,51 @@ textarea {
 
 
 /* ---------- RESPONSIVE BREAKPOINTS ---------- */
+/* MOBILE FIX */
+@media (max-width: 600px) {
+
+  .contact-wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .contact-visual {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 80px;   /* space for waves */
+  }
+
+  .arch-box {
+    width: 90%;
+    height: 260px;
+    background: #000 !important;
+    border-radius: 150px 150px 0 0;
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+  }
+
+  .audio-bars {
+    position: absolute;
+    bottom: 5px;
+    right: 50%;
+    transform: translateX(50%);
+    z-index: 3;
+    display: flex;
+  }
+
+  .audio-bars img {
+    height: 45px !important;
+  }
+
+  /* Form responsive */
+  .form-row {
+    flex-direction: column;
+  }
+}
 
 /* Tablet */
 @media (max-width: 992px) {
@@ -879,28 +985,52 @@ textarea {
     text-align: center;
   }
 
-  .arch-box {
-    height: 260px;
-  }
+  /* .arch-box {
+    height: 260px !important;
+    background-color:black !important;
+  } */
 }
-
-/* Mobile */
 @media (max-width: 600px) {
-  .form-row {
-    flex-direction: column;
+  .contact-visual {
+    padding-bottom: 80px; /* Creates space for waves */
+    position: relative;
   }
 
   .arch-box {
-    height: 230px;
-    border-radius: 140px 140px 0 0;
+    z-index: 4;
+    position: relative;
+    background: black !important;;
   }
 
   .audio-bars {
+    z-index: 3;
+    bottom: -10px; /* Move waves below the arch so arch is visible */
+  }
+}
+@media (max-width: 600px) {
+  .audio-bars img {
+    height: 40px !important;
+  }
+}
+
+
+
+/* Mobile */
+
+
+  /* .arch-box {
+    height: 230px;
+    border-radius: 140px 140px 0 0;
+    background-color:black !important;
+    color:black;
+  } */
+
+  /* .audio-bars {
     width: 90px;
     bottom: 8px;
     right: 10px;
   }
-}
+} */
 .contact-footer {
   background-color: #5C1917;
   color: white;
@@ -959,11 +1089,26 @@ textarea {
   .footer-content {
     flex-direction: column;
     text-align: left;
-    gap: 25px;
+    gap:0px;
+  border-right:none !important;
+
   }
   
   .contact-item {
     max-width: 100%;
+  
+  }
+  .contact-item{
+    border:none;
+  }
+  .contact-info li{
+    text-align:start;
+  }
+  .quick-links{
+    text-align:start;
+  }
+  .courses{
+    text-align:start;
   }
 }
 
