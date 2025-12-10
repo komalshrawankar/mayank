@@ -75,7 +75,7 @@ body {
 /* RIGHT SIDE SEMICIRCLE BACKGROUND */
 .semi-container {
     width: 330px;
-    height: 530px;
+    height: 630px;
     background: linear-gradient(180deg, #3B5378, #2c3f5c);
     /* exact blue shade */
     border-radius: 0 0 150px 150px;
@@ -1513,6 +1513,9 @@ text-align:start;
 .contact-info ul li i {
     color: #FFD700;
     margin-right: 10px;
+}
+.quick-links h5{
+    text-align:start;
 }
 
 /* Responsive Design for Smaller Screens */
