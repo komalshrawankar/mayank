@@ -437,6 +437,8 @@
                             personal attention</li>
                     </ul>
                 </div>
+              
+
             </div>
         </div>
     </section>
@@ -516,9 +518,16 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.getElementById("contactForm").addEventListener("submit", function (e) {
+  <script>
+document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
+
+  const btn = document.getElementById("submitBtn");
+  const popup = document.getElementById("popupMessage");
+
+  // Disable button + show loading text
+  btn.disabled = true;
+  btn.innerHTML = "Sending...";
 
   const data = {
     name: document.getElementById("name").value,
@@ -533,11 +542,170 @@
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data)
   })
-  .then(() => alert("Form submitted successfully!"))
-  .catch(err => alert("Error: " + err));
-});
+  .then(() => {
+    // Show popup
+    popup.style.display = "block";
 
-    </script>
+    // Reset form
+    document.getElementById("contactForm").reset();
+
+    // Restore button after 2 seconds
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.innerHTML = "➜ SUBMIT";
+    }, 2000);
+  })
+  .catch(err => {
+    btn.disabled = false;
+    btn.innerHTML = "➜ SUBMIT";
+    alert("Error submitting form");
+  });
+});
+</script>
+<script>
+let isAssistantActive = false;  // Track mic toggle state
+let recognition;                // Speech recognition instance
+
+/* -----------------------------
+   SPEAK TEXT
+--------------------------------*/
+function speak(text) {
+    window.speechSynthesis.cancel(); // Stop previous speech
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "en-US";
+    speech.rate = 1;
+    window.speechSynthesis.speak(speech);
+}
+
+/* -----------------------------
+   READ PAGE CONTENT
+--------------------------------*/
+function readPage() {
+    window.speechSynthesis.cancel();
+    const text = document.body.innerText;
+    speak(text);
+}
+function stopReading() {
+    window.speechSynthesis.cancel();
+    speak("Reading stopped.");
+}
+
+
+/* -----------------------------
+   STOP READING FUNCTION
+--------------------------------*/
+function stopReading() {
+    window.speechSynthesis.cancel();
+    if (recognition) recognition.stop();
+    speak("Stopped.");
+}
+
+/* -----------------------------
+   TOGGLE VOICE ASSISTANT ON/OFF
+--------------------------------*/
+function toggleVoiceAssistant() {
+    if (isAssistantActive) {
+        // TURN OFF
+        stopReading();
+        isAssistantActive = false;
+        return;
+    }
+
+    // TURN ON
+    isAssistantActive = true;
+    startVoiceAssistant();
+}
+
+/* -----------------------------
+   START VOICE ASSISTANT
+--------------------------------*/
+function startVoiceAssistant() {
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    recognition = new SpeechRecognition();
+
+    recognition.lang = "en-US";
+    recognition.continuous = false;
+
+    speak("Voice assistant activated. Please say a command.");
+
+    recognition.start();
+
+    recognition.onresult = function(event) {
+        if (!isAssistantActive) return; // prevent actions when turned off
+
+        const command = event.results[0][0].transcript.toLowerCase();
+        console.log("Voice:", command);
+
+        // -------------------
+        // STOP READING COMMAND
+        // -------------------
+        if (command.includes("stop reading") || command.includes("stop")) {
+            stopReading();
+            return;
+        }
+
+        // -------------------
+        // PAGE READING
+        // -------------------
+        if (command.includes("read") || command.includes("speak page")) {
+            readPage();
+            return;
+        }
+
+        // -------------------
+        // NAVIGATION COMMANDS
+        // -------------------
+        if (command.includes("home")) {
+            speak("home page");
+            window.location.href = "index2.html";
+        }
+        else if (command.includes("contact")) {
+            speak("contact page");
+            window.location.href = "contactus.html";
+        }
+        else if (command.includes("courses")) {
+            speak("courses page");
+            window.location.href = "courses.html";
+        }
+        else if (command.includes("about")) {
+            speak("about page");
+            window.location.href = "about.html";
+        }
+        else if (command.includes("stop reading") || command.includes("stop")) {
+    speak("Stopping reading.");
+    window.speechSynthesis.cancel();
+}
+
+        else {
+            speak("I did not understand. Please try again.");
+        }
+    };
+
+    // Restart listening only when assistant is active
+    recognition.onend = function() {
+        if (isAssistantActive) recognition.start();
+    };
+}
+</script>
+
+
+
+<div class="whatsapp-btn">
+    <a href="https://wa.me/917249672150" target="_blank" aria-label="Chat on WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </a>
+</div>
+
+<div class="voice-bar">
+    <button class="assistant-btn" onclick="toggleVoiceAssistant()" aria-label="Voice assistant">🎤</button>
+    <button class="assistant-btn" onclick="readPage()" aria-label="Read this page">🔊</button>
+    <button class="assistant-btn" onclick="stopReading()" aria-label="Stop reading">⏹</button>
+</div>
+
+
+
+
 </body>
 
 </html>

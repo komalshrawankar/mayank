@@ -13,6 +13,69 @@ body {
     overflow-x: hidden;
     box-sizing: border-box;
 }
+.whatsapp-btn {
+    position: fixed;
+    bottom: 100px;   /* Keeps it ABOVE voice bar */
+    right: 25px;
+    z-index: 10000;
+}
+
+.whatsapp-btn img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.whatsapp-btn img:hover {
+    transform: scale(1.1);
+}
+
+/* Popup message */
+.popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #28a745;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  display: none;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+  z-index: 9999;
+  animation: fadeInOut 3s ease forwards;
+}
+.voice-btn, .read-btn {
+    position: fixed;
+    right: 20px;
+    background: black;
+    color: white;
+    border: none;
+    padding: 14px 18px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.voice-btn {
+    bottom: 80px;
+}
+
+.read-btn {
+    bottom: 20px;
+}
+
+/* Fade animation */
+@keyframes fadeInOut {
+  0%   { opacity: 0; transform: translateY(-10px); }
+  10%  { opacity: 1; transform: translateY(0); }
+  90%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
 
 @media (max-width: 768px) {
     .navbar {
@@ -188,7 +251,7 @@ body {
 .stats-box {
     border: 2px solid black !important;
     display: flex;
-    gap: 14px;
+    gap:50px;
     margin-top: 32px;
     flex-wrap: nowrap;
     border-radius: 50px;
@@ -1533,4 +1596,41 @@ text-align:start;
         font-size: 16px;
     }
 }
+.read-btn {
+    bottom: 20px;
+}
+.voice-bar {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: black;
+    padding: 10px 15px;
+    border-radius: 50px;
+    display: flex;
+    gap: 15px;
+    z-index: 9999;
+}
+.voice-bar {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: black;
+    padding: 10px 15px;
+    border-radius: 50px;
+    display: flex;
+    gap: 15px;
+    z-index: 9999;
+}
+
+.assistant-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
 

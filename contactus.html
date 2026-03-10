@@ -4,83 +4,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Academy</title>
+    <title>Music Academy – Contact Us</title>
 
-    <!-- BOOTSTRAP NAVBAR -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style/courses.css">
-     <link rel="stylesheet" href="style/home.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-        <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style/home.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Screen Reader Only Labels */
+        .sr-only {
+            position: absolute;
+            left: -9999px;
+        }
+
+        /* Keyboard focus highlight */
+        *:focus {
+            outline: 3px solid #007bff !important;
+            outline-offset: 4px;
+        }
+
+        /* Center Popup */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #28a745;
+            color: #fff;
+            padding: 16px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            display: none;
+            z-index: 9999;
+            opacity: 0;
+            animation: fadeInOut 2.5s ease forwards;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translate(-50%, -55%); }
+            15% { opacity: 1; transform: translate(-50%, -50%); }
+            85% { opacity: 1; }
+            100% { opacity: 0; transform: translate(-50%, -55%); }
+        }
+
+        /* Floating Read Aloud Button */
+        .tts-btn {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 12px 16px;
+            font-size: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 99999;
+        }
+        
+    </style>
 </head>
 
+<body>
 
-
-</head>
- <!-- NAVBAR (Bootstrap) -->
-    <nav class="navbar navbar-expand-lg ">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="#">Logo</a>
+            <a class="navbar-brand" href="#" aria-label="Main Website Logo">Logo</a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index2.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Gurus</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contactus.html">Contact us</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contactus.html">Contact us</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-<section class="music-courses-banner">
-    <div class="music-courses-banner-content">
-        <h1>Get in Touch with Us</h1>
-        <p>Get in touch with us for all your inquiries. We’re here to guide you through your musical journey.</p>
-    </div>
-</section>
+    <!-- BANNER -->
+    <section class="music-courses-banner">
+        <div class="music-courses-banner-content">
+            <h1>Get in Touch with Us</h1>
+            <p>We’re here to help you begin your musical journey.</p>
+        </div>
+    </section>
 
+    <!-- CONTACT SECTION -->
+    <section class="contact-section">
+        <div class="contact-wrapper">
 
-<section class="contact-section">
-  <div class="contact-wrapper">
+            <!-- LEFT FORM -->
+            <form class="contact-form" id="contactForm" aria-label="Contact form">
 
-    <!-- LEFT FORM -->
-   <form class="contact-form" id="contactForm">
-  <div class="form-row">
-    <input id="name" type="text" placeholder="Name" required>
-    <input id="surname" type="text" placeholder="Surname" required>
-  </div>
+                <div class="form-row">
 
-  <input id="email" type="email" class="full" placeholder="Email" required>
+                    <label class="sr-only" for="name">Enter your name</label>
+                    <input id="name" type="text" placeholder="Name" required aria-required="true">
 
-  <textarea id="message" placeholder="Message" required></textarea>
+                    <label class="sr-only" for="surname">Enter your surname</label>
+                    <input id="surname" type="text" placeholder="Surname" required aria-required="true">
 
-  <button type="submit" class="submit-btn">
-    ➜ SUBMIT
-  </button>
-</form>
+                </div>
 
+                <label class="sr-only" for="email">Enter your email</label>
+                <input id="email" type="email" class="full" placeholder="Email" required aria-required="true">
 
-    <!-- RIGHT SIDE ARCH IMAGE/VIDEO -->
-    <div class="contact-visual">
-      <div class="arch-box">
-        <!-- Add image/video inside this box -->
-      </div>
-      <div class="audio-bars">
-        <img src="/Images/waves.png" alt="" srcset="" height="80px">
-        <img src="/Images/waves.png" alt="" srcset=""height="80px">
-      </div>
-    </div>
+                <label class="sr-only" for="message">Enter your message</label>
+                <textarea id="message" placeholder="Message" required aria-required="true"></textarea>
 
-  </div>
-</section>
-<footer class="contact-footer">
+                <button type="submit" id="submitBtn" class="submit-btn" aria-label="Submit the contact form">
+                    ➜ SUBMIT
+                </button>
+
+                <div id="popupMessage" class="popup" role="alert" aria-live="assertive">
+                    Message sent successfully!
+                </div>
+
+            </form>
+
+            <!-- RIGHT IMAGE -->
+            <div class="contact-visual">
+                <div class="arch-box"></div>
+                <div class="audio-bars">
+                    <img src="/Images/waves.png" height="80">
+                    <img src="/Images/waves.png" height="80">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER TOP -->
+   <footer class="contact-footer">
   <div class="footer-content">
 
     <!-- Address -->
@@ -113,26 +180,8 @@
 
   </div>
 </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<footer class="footer-section">
+    <!-- FOOTER BOTTOM -->
+   <footer class="footer-section">
     <div class="container">
         <div class="row align-items-center">
 
@@ -197,42 +246,193 @@
     <div class="text-center">Copyright © 2025 Mayank | Designed by Adborn Solutions</div>
 </footer>
 
+    <!-- TEXT-TO-SPEECH BUTTON -->
+    <button class="tts-btn" onclick="speakForm()" aria-label="Read form aloud">🔊</button>
+
+    <script>
+        function speakForm() {
+            const text = "Contact form. Please enter your name, surname, email, and message. Press submit when done.";
+            const speech = new SpeechSynthesisUtterance(text);
+            speech.rate = 1;
+            window.speechSynthesis.speak(speech);
+        }
+
+        document.getElementById("contactForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const btn = document.getElementById("submitBtn");
+            const popup = document.getElementById("popupMessage");
+
+            btn.disabled = true;
+            btn.innerHTML = "Sending...";
+
+            const data = {
+                name: document.getElementById("name").value,
+                surname: document.getElementById("surname").value,
+                email: document.getElementById("email").value,
+                message: document.getElementById("message").value,
+            };
+
+            fetch("https://script.google.com/macros/s/AKfycbx8R3wjlBYuZBUnP2Dfd-CpDSyUnC7A7mA7PP10gkJAWqvaP1wVjdbiaR040V7ezP5fGA/exec", {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            })
+            .then(() => {
+                popup.style.display = "block";
+                document.getElementById("contactForm").reset();
+
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.innerHTML = "➜ SUBMIT";
+                }, 2000);
+            })
+            .catch(() => {
+                btn.disabled = false;
+                btn.innerHTML = "➜ SUBMIT";
+                alert("Error submitting form");
+            });
+        });
+    </script>
+<script>
+let isAssistantActive = false;  // Track mic toggle state
+let recognition;                // Speech recognition instance
+
+/* -----------------------------
+   SPEAK TEXT
+--------------------------------*/
+function speak(text) {
+    window.speechSynthesis.cancel(); // Stop previous speech
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "en-US";
+    speech.rate = 1;
+    window.speechSynthesis.speak(speech);
+}
+
+/* -----------------------------
+   READ PAGE CONTENT
+--------------------------------*/
+function readPage() {
+    window.speechSynthesis.cancel();
+    const text = document.body.innerText;
+    speak(text);
+}
+function stopReading() {
+    window.speechSynthesis.cancel();
+    speak("Reading stopped.");
+}
 
 
+/* -----------------------------
+   STOP READING FUNCTION
+--------------------------------*/
+function stopReading() {
+    window.speechSynthesis.cancel();
+    if (recognition) recognition.stop();
+    speak("Stopped.");
+}
 
+/* -----------------------------
+   TOGGLE VOICE ASSISTANT ON/OFF
+--------------------------------*/
+function toggleVoiceAssistant() {
+    if (isAssistantActive) {
+        // TURN OFF
+        stopReading();
+        isAssistantActive = false;
+        return;
+    }
 
+    // TURN ON
+    isAssistantActive = true;
+    startVoiceAssistant();
+}
 
+/* -----------------------------
+   START VOICE ASSISTANT
+--------------------------------*/
+function startVoiceAssistant() {
 
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    recognition = new SpeechRecognition();
 
+    recognition.lang = "en-US";
+    recognition.continuous = false;
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-   <script>
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+    speak("Voice assistant activated. Please say a command.");
 
-  const data = {
-    name: document.getElementById("name").value,
-    surname: document.getElementById("surname").value,
-    email: document.getElementById("email").value,
-    message: document.getElementById("message").value,
-  };
+    recognition.start();
 
-  fetch("https://script.google.com/macros/s/AKfycbx8R3wjlBYuZBUnP2Dfd-CpDSyUnC7A7mA7PP10gkJAWqvaP1wVjdbiaR040V7ezP5fGA/exec", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  })
-  .then(() => {
-    alert("Form submitted successfully!");
-    document.getElementById("contactForm").reset();
-  })
-  .catch(error => alert("Error submitting form: " + error));
-});
+    recognition.onresult = function(event) {
+        if (!isAssistantActive) return; // prevent actions when turned off
+
+        const command = event.results[0][0].transcript.toLowerCase();
+        console.log("Voice:", command);
+
+        // -------------------
+        // STOP READING COMMAND
+        // -------------------
+        if (command.includes("stop reading") || command.includes("stop")) {
+            stopReading();
+            return;
+        }
+
+        // -------------------
+        // PAGE READING
+        // -------------------
+        if (command.includes("read") || command.includes("speak page")) {
+            readPage();
+            return;
+        }
+
+        // -------------------
+        // NAVIGATION COMMANDS
+        // -------------------
+        if (command.includes("home")) {
+            speak("home page");
+            window.location.href = "index2.html";
+        }
+        else if (command.includes("contact")) {
+            speak("contact page");
+            window.location.href = "contactus.html";
+        }
+        else if (command.includes("courses")) {
+            speak("courses page");
+            window.location.href = "courses.html";
+        }
+        else if (command.includes("about")) {
+            speak("about page");
+            window.location.href = "about.html";
+        }
+        else if (command.includes("stop reading") || command.includes("stop")) {
+    speak("Stopping reading.");
+    window.speechSynthesis.cancel();
+}
+
+        else {
+            speak("I did not understand. Please try again.");
+        }
+    };
+
+    // Restart listening only when assistant is active
+    recognition.onend = function() {
+        if (isAssistantActive) recognition.start();
+    };
+}
 </script>
 
-</body>
 
+<div class="whatsapp-btn">
+    <a href="https://wa.me/917249672150" target="_blank" aria-label="Chat on WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </a>
+</div>
+
+<div class="voice-bar">
+    <button class="assistant-btn" onclick="toggleVoiceAssistant()" aria-label="Voice assistant">🎤</button>
+    <button class="assistant-btn" onclick="readPage()" aria-label="Read this page">🔊</button>
+    <button class="assistant-btn" onclick="stopReading()" aria-label="Stop reading">⏹</button>
+</div>
+</body>
 </html>

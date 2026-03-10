@@ -6,3 +6,14 @@ fetch("https://script.google.com/macros/s/AKfycbx8R3wjlBYuZBUnP2Dfd-CpDSyUnC7A7m
   },
   body: JSON.stringify(data)
 });
+
+
+function speakPage() {
+  const text = document.body.innerText;
+  const speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "en-US";
+  speech.rate = 1;
+  speech.pitch = 1;
+  window.speechSynthesis.speak(speech);
+}
+
